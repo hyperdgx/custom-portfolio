@@ -4,6 +4,9 @@
     font-family: Helveticas;
     src: url("./font/Helvetica.ttf");
   }
+  .btnc{
+    cursor: pointer;
+  }
   
   * {
     font-family: Helveticas;
