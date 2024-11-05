@@ -10,6 +10,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="shortcut icon" href="./images/ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="./cursor-effect/style.css">
 </head>
 <body class="bg-[#0d1117]" data-scroll-container>
     <marquee class="text-white text-[12px] bg-neutral-900 border-b border-neutral-800 p-[4px]" behavior="left" direction=""><span class="text-pink-500">◉</span>&nbsp;&nbsp;&nbsp; This Website is Under Construction &nbsp;&nbsp;&nbsp; <span class="text-neutral-400">Please Wait, Updating Soon</span> &nbsp;&nbsp;&nbsp; Thanks For Visiting &nbsp;&nbsp;&nbsp; <span class="text-neutral-400">Have a Nice Day!!!</span></marquee>
@@ -58,7 +59,7 @@
             </div>
         </footer>
     </div>
-
+    <div id="circle" class="circle"></div>
     
     
     
@@ -74,6 +75,41 @@
         smooth: true
         });
     </script>
+    
+    <script src="https://unpkg.com/kinet@2.2.1/dist/kinet.min.js"></script>
+    <script>
+        // create instance of kinet with custom settings
+        var kinet = new Kinet({
+            acceleration: .05,
+            friction: 0.20,
+            names: ["x", "y"],
+        });
 
+        // select circle element
+        var circle = document.getElementById('circle');
+
+        // set handler on kinet tick event
+        kinet.on('tick', function(instances) {
+            circle.style.transform = `translate3d(${ (instances.x.current) }px, ${ (instances.y.current) }px, 0) rotateX(${ (instances.x.velocity/2) }deg) rotateY(${ (instances.y.velocity/2) }deg)`;
+        });
+
+        // call kinet animate method on mousemove
+        document.addEventListener('mousemove', function (event) {
+            kinet.animate('x', event.clientX - window.innerWidth/2);
+            kinet.animate('y', event.clientY - window.innerHeight/2);
+        });
+
+
+
+
+        // log
+        kinet.on('start', function() {
+            console.log('start');
+        });
+
+        kinet.on('end', function() {
+            console.log('end');
+        });
+    </script>
 </body>
 </html>
