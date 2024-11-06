@@ -11,3 +11,29 @@
   mix-blend-mode: difference;
   z-index: +999;
 }
+.btn-shine {
+
+  color: #ffffff;
+  background: linear-gradient(to right, #F4E1B6 0%, #794A12 20%, #F4E1B6 40%);
+  background-position: 0px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 8s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -30px;
+  }
+  60% {
+    background-position: 200px;
+  }
+  100% {
+    background-position: 260px;
+  }
+}
+
