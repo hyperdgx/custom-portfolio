@@ -16,15 +16,21 @@
   }
   .card-n{
     background: url("./images/ct-grid.png");
-    background-size: cover;
+    background-size: 120%;
     background-position: center;
     cursor: pointer;
+    transition: all .25s ease-in-out;
   }
   .card-n-1{
     background: url("./images/ct-grid-1.png");
-    background-size: cover;
+    background-size: 120%;
     background-position: center;
     cursor: pointer;
+    transition: all .25s ease-in-out;
+  }
+  .card-n:hover,.card-n-1:hover{
+    background-size: 125%;
+    opacity: .5;
   }
     /* Only necessary with horizontal scrolling */
   html[data-scroll-orientation="horizontal"] {
